@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 import config from '../configs/config';
 
-export function LoginScreen({onLoginSuccess}) {
+export function LoginScreen({navigation, onLoginSuccess}) {
     return(
         <View style = {styles.container}>
             <SafeAreaView style={styles.container}>
@@ -19,7 +19,7 @@ export function LoginScreen({onLoginSuccess}) {
                         <TouchableOpacity style={styles.btnlogin} onPress={onLoginSuccess}>
                             <Text style={[styles.text, {fontWeight: '700'}]}>Đăng nhập</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.btnface}>
+                        <TouchableOpacity style={styles.btnface} onPress={() => navigation.navigate('FaceLogin')}>
                             <Image source={require('../assets/icons/face.png')}/>
                         </TouchableOpacity>
                     </View>
@@ -29,7 +29,7 @@ export function LoginScreen({onLoginSuccess}) {
                     <TouchableOpacity style={styles.btntext}>
                         <Text style={styles.text}>ĐĂNG NHẬP BẰNG TÀI KHOẢN KHÁC</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.btntext}>
+                    <TouchableOpacity style={styles.btntext} onPress={() => navigation.navigate('FirstSignup')}>
                         <Text style={styles.text}>TẠO TÀI KHOẢN MỚI</Text>
                     </TouchableOpacity>
                 </View>
