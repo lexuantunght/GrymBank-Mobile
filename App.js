@@ -2,13 +2,21 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import { Animated, StyleSheet } from 'react-native';
 import { AppNav } from './src/navigations/AppNav';
-import { LoginScreen } from './src/views/LoginScreen';
+import { PreNav } from './src/navigations/PreNav';
 import { NavigationContainer } from '@react-navigation/native';
 
 function MainApp() {
   return(
     <NavigationContainer>
       <AppNav/>
+    </NavigationContainer>
+  )
+}
+
+function PreApp({onLoginSuccess}) {
+  return(
+    <NavigationContainer>
+      <PreNav onLoginSuccess={onLoginSuccess}/>
     </NavigationContainer>
   )
 }
@@ -31,7 +39,7 @@ function App() {
     <Animated.View style = {[styles.container, {opacity: fadeAnim}]}>
       {
         authenticated ? <MainApp/> 
-        : <LoginScreen onLoginSuccess = {() => {
+        : <PreApp onLoginSuccess = {() => {
           fadeAnim.setValue(0);
           setAuthenticated(true);
         }}/>
