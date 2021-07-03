@@ -29,7 +29,7 @@ export function FirstSignupScreen({navigation}) {
                         <Text style={styles.item}>- Luôn luôn bảo vệ kỹ mật khẩu.</Text>
                         <Text style={styles.item}>- Chỉ nên giao dịch với những website thanh toán uy tín.</Text>
                     </View>
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SecondSignup')}>
                         <Text style={{fontWeight: '700', color: '#fff'}}>Tiếp tục</Text>
                     </TouchableOpacity>
                 </ScrollView>
