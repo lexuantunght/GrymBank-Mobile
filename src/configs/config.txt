@@ -1,0 +1,4 @@
+primary -> màu đậm nhất (bậc 1)
+secondary -> màu bậc 2
+tintColor -> màu xanh vừa bậc 3
+backColor -> màu nhạt nhất
