@@ -1,12 +1,10 @@
 import React from 'react';
-import {
-    View, StyleSheet, SafeAreaView, Text, Dimensions, TouchableOpacity, Image
-} from 'react-native';
-import { RNCamera } from 'react-native-camera';
+import { View, SafeAreaView, Text, TouchableOpacity, StyleSheet, ScrollView, Dimensions, Image } from 'react-native';
 import { CustomHeader } from '../components/CustomHeader';
+import { RNCamera } from 'react-native-camera';
 import config from '../configs/config';
 
-export function FrontCardScreen({navigation}) {
+export function ConfirmFaceScreen({navigation}) {
     const camera = React.useRef();
     const [photoUri, setPhotoUri] = React.useState(null);
     const takePicture = async () => {
@@ -18,18 +16,18 @@ export function FrontCardScreen({navigation}) {
     };
     return(
         <View style={styles.container}>
-            <CustomHeader onLeftClick={() => navigation.goBack()} showRightButton={false}/>
+            <CustomHeader title='Tạo tài khoản' subTitle='3/7' onLeftClick={() => navigation.goBack()} onRightClick={() => navigation.popToTop()}/>
             <SafeAreaView style={styles.container}>
-                <View style={{alignItems: 'center', marginBottom: 40}}>
-                    <Text style={styles.title}>Mặt trước</Text>
-                    <Text style={{fontSize: 17, fontWeight: '700', color: '#fff'}}>CMND/CCCD</Text>
+                <View style={{marginBottom: 40}}>
+                    <Text style={styles.title}>Xác nhận khuôn mặt</Text>
+                    <Text style={styles.subtitle}>Vui lòng nhìn thẳng chính diện vào camera</Text>
                 </View>
-                <View style={{height: Dimensions.get('screen').height * 2 / 5}}>
+                <View style={{height: Dimensions.get('screen').height * 2 / 5, width: Dimensions.get('screen').height * 2 / 5, alignSelf: 'center', borderRadius: Dimensions.get('screen').height / 5, overflow: 'hidden'}}>
                     {!photoUri ? 
                     <RNCamera
                         ref={camera}
                         style={{flex: 1}}
-                        type={RNCamera.Constants.Type.back}
+                        type={RNCamera.Constants.Type.front}
                         androidCameraPermissionOptions={{
                             title: 'Permission to use camera',
                             message: 'We need your permission to use your camera',
@@ -46,8 +44,7 @@ export function FrontCardScreen({navigation}) {
                     :
                     <Image source={{uri: photoUri}} style={{flex: 1}} resizeMode='contain'/>}
                 </View>
-                <Text style={{textAlign: 'center', fontSize: 17, fontWeight: '700', color: '#fff', marginTop: 10}}>MẶT TRƯỚC</Text>
-                <Text style={[styles.subtitle]}>Đặt mặt trước CMND vào khung hình và ấn chụp để tiếp tục</Text>
+                <View style={{marginVertical: 20}}/>
                 {!photoUri ? 
                 <TouchableOpacity style={styles.button} onPress={takePicture}>
                     <Text style={{fontWeight: '700', color: '#fff'}}>Chụp</Text>
@@ -57,7 +54,7 @@ export function FrontCardScreen({navigation}) {
                     <TouchableOpacity style={styles.retake} onPress={() => setPhotoUri(null)}>
                         <Text style={{fontWeight: '700'}}>Chụp lại</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.next} onPress={() => navigation.navigate('BackCard')}>
+                    <TouchableOpacity style={styles.next} onPress={() => navigation.navigate('LoginInfo')}>
                         <Text style={{fontWeight: '700', color: '#fff'}}>Tiếp tục</Text>
                     </TouchableOpacity>
                 </View>
@@ -77,7 +74,7 @@ const styles = StyleSheet.create({
     },
     subtitle: {
         color: '#fff',
-        marginHorizontal: 40, marginTop: 20, marginBottom: 20
+        marginHorizontal: 20, marginTop: 10, marginBottom: 20
     },
     button: {
         padding: 10, borderRadius: 15, height: 46, backgroundColor: config.tintColor,
@@ -93,4 +90,4 @@ const styles = StyleSheet.create({
         padding: 10, borderRadius: 15, height: 46, backgroundColor: config.tintColor,
         justifyContent: 'center', alignItems: 'center', flex: 3
     }
-})
+});

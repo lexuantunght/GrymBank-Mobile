@@ -6,7 +6,7 @@ import { RNCamera } from 'react-native-camera';
 import { CustomHeader } from '../components/CustomHeader';
 import config from '../configs/config';
 
-export function FrontCardScreen({navigation}) {
+export function BackCardScreen({navigation}) {
     const camera = React.useRef();
     const [photoUri, setPhotoUri] = React.useState(null);
     const takePicture = async () => {
@@ -21,7 +21,7 @@ export function FrontCardScreen({navigation}) {
             <CustomHeader onLeftClick={() => navigation.goBack()} showRightButton={false}/>
             <SafeAreaView style={styles.container}>
                 <View style={{alignItems: 'center', marginBottom: 40}}>
-                    <Text style={styles.title}>Mặt trước</Text>
+                    <Text style={styles.title}>Mặt sau</Text>
                     <Text style={{fontSize: 17, fontWeight: '700', color: '#fff'}}>CMND/CCCD</Text>
                 </View>
                 <View style={{height: Dimensions.get('screen').height * 2 / 5}}>
@@ -46,8 +46,8 @@ export function FrontCardScreen({navigation}) {
                     :
                     <Image source={{uri: photoUri}} style={{flex: 1}} resizeMode='contain'/>}
                 </View>
-                <Text style={{textAlign: 'center', fontSize: 17, fontWeight: '700', color: '#fff', marginTop: 10}}>MẶT TRƯỚC</Text>
-                <Text style={[styles.subtitle]}>Đặt mặt trước CMND vào khung hình và ấn chụp để tiếp tục</Text>
+                <Text style={{textAlign: 'center', fontSize: 17, fontWeight: '700', color: '#fff', marginTop: 10}}>MẶT SAU</Text>
+                <Text style={[styles.subtitle]}>Đặt mặt sau CMND vào khung hình và ấn chụp để tiếp tục</Text>
                 {!photoUri ? 
                 <TouchableOpacity style={styles.button} onPress={takePicture}>
                     <Text style={{fontWeight: '700', color: '#fff'}}>Chụp</Text>
@@ -57,7 +57,7 @@ export function FrontCardScreen({navigation}) {
                     <TouchableOpacity style={styles.retake} onPress={() => setPhotoUri(null)}>
                         <Text style={{fontWeight: '700'}}>Chụp lại</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.next} onPress={() => navigation.navigate('BackCard')}>
+                    <TouchableOpacity style={styles.next} onPress={() => navigation.navigate('ConfirmCard')}>
                         <Text style={{fontWeight: '700', color: '#fff'}}>Tiếp tục</Text>
                     </TouchableOpacity>
                 </View>

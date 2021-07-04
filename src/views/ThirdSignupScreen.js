@@ -12,7 +12,7 @@ export function ThirdSignupScreen({navigation}) {
             <SafeAreaView style={styles.container}>
                 <View style={{marginBottom: 40}}>
                     <Text style={styles.title}>Thông tin cá nhân</Text>
-                    <Text style={styles.subtitle}>Vui lòng chọn 1 trong 2 giấy giờ dưới đây:</Text>
+                    <Text style={styles.subtitle}>Vui lòng chọn 1 trong 2 giấy tờ dưới đây:</Text>
                 </View>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('FrontCard')}>
                     <Image source={require('../assets/icons/card.png')} style={{marginHorizontal: 20}}/>
