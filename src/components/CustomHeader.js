@@ -12,7 +12,7 @@ export function CustomHeader({title = '', subTitle = '', showRightButton = true,
             <SafeAreaView style={styles.header}>
                 {showLeftButton ?
                 <TouchableOpacity style={styles.headerButton} onPress={onLeftClick}>
-                    <Image source={require('../assets/icons/left-arrow.png')} style={[styles.icon]} resizeMode='contain'/>
+                    <Image source={require('../assets/icons/left-arrow.png')} style={[styles.icon, { marginLeft: 5 }]} resizeMode='contain'/>
                     <Text style={[styles.text]}>Back</Text>
                 </TouchableOpacity> : null}
                 <View style={{flexDirection: 'column', alignItems: 'center'}}>
@@ -22,7 +22,7 @@ export function CustomHeader({title = '', subTitle = '', showRightButton = true,
                 {showRightButton ?
                 <TouchableOpacity style={styles.headerButton} onPress={onRightClick}>
                     <Text style={[styles.text]}>Home</Text>
-                    <Image source={require('../assets/icons/home.png')} style={[styles.icon, {marginLeft: 6}]} resizeMode='contain'/>
+                    <Image source={require('../assets/icons/home.png')} style={[styles.icon, {marginLeft: 6, marginRight: 5}]} resizeMode='contain'/>
                 </TouchableOpacity> : null}
             </SafeAreaView>
         </View>
@@ -31,9 +31,8 @@ export function CustomHeader({title = '', subTitle = '', showRightButton = true,
 
 const styles = StyleSheet.create({
     header: {
-        height: 54, backgroundColor: config.primary,
-        flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
-        paddingHorizontal: 10
+        height: 64, backgroundColor: config.primary,
+        flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'
     },
     headerButton: {
         flexDirection: 'row', alignItems: 'center'
