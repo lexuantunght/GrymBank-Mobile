@@ -16,6 +16,7 @@ import { BranchConfirmScreen } from '../views/BranchConfirmScreen';
 import { TotalConfirmScreen } from '../views/TotalConfirmScreen';
 import { OTPConfirmScreen } from '../views/OTPConfirmScreen';
 import { SuccessRegisterScreen } from '../views/SuccessRegisterScreen';
+
 const Stacks = createStackNavigator();
 
 export function PreNav({onLoginSuccess}) {
