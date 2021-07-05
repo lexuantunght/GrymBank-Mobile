@@ -16,7 +16,7 @@ export function ConfirmFaceScreen({navigation}) {
     };
     return(
         <View style={styles.container}>
-            <CustomHeader title='Tạo tài khoản' subTitle='3/7' onLeftClick={() => navigation.goBack()} onRightClick={() => navigation.popToTop()}/>
+            <CustomHeader title='Tạo tài khoản' subTitle='2/7' onLeftClick={() => navigation.goBack()} onRightClick={() => navigation.popToTop()}/>
             <SafeAreaView style={styles.container}>
                 <View style={{marginBottom: 40}}>
                     <Text style={styles.title}>Xác nhận khuôn mặt</Text>

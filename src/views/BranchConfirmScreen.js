@@ -1,25 +1,59 @@
 import React from 'react';
 import { View, SafeAreaView, Text, TouchableOpacity, StyleSheet, ScrollView, Dimensions, Image } from 'react-native';
 import { CustomHeader } from '../components/CustomHeader';
-import { CustomInput } from '../components/CustomInput';
+import { CustomDropdown } from '../components/CustomDropdown';
 import config from '../configs/config';
 
-export function LoginInfoScreen({navigation}) {
+const provinces = [
+    {
+        value: 1,
+        label: 'Hà Nội'
+    },
+    {
+        value: 2,
+        label: 'TP.HCM'
+    },
+    {
+        value: 3,
+        label: 'Đà Nẵng'
+    },
+    {
+        value: '4',
+        label: 'Quảng Bình'
+    }
+];
+
+const branches = [
+    {
+        value: 1,
+        label: 'Chi nhánh A'
+    },
+    {
+        value: 2,
+        label: 'Chi nhánh B'
+    },
+    {
+        value: 3,
+        label: 'Chi nhánh C'
+    }
+];
+
+export function BranchConfirmScreen({navigation}) {
     return(
         <View style={styles.container}>
-            <CustomHeader title='Tạo tài khoản' subTitle='3/7' onLeftClick={() => navigation.goBack()} onRightClick={() => navigation.popToTop()}/>
+            <CustomHeader title='Tạo tài khoản' subTitle='5/7' onLeftClick={() => navigation.goBack()} onRightClick={() => navigation.popToTop()}/>
             <SafeAreaView style={[styles.container, {justifyContent: 'space-between'}]}>
                 <View>
                 <View style={{marginBottom: 40}}>
-                    <Text style={styles.title}>Thông tin đăng nhập</Text>
-                    <Text style={styles.subtitle}>Vui lòng nhập thông tin dùng để đăng nhập</Text>
+                    <Text style={styles.title}>Chi nhánh xác thực thông tin</Text>
+                    <Text style={styles.subtitle}>Bạn cần ra chi nhánh gần nhất xác thực thông tin, để tài khoản được mở một cách hoàn chỉnh.</Text>
                 </View>
                 <View style={{marginHorizontal: 20}}>
-                    <CustomInput label = 'Tên đăng nhập'/>
-                    <CustomInput label = 'Email đăng nhập'/>
+                    <CustomDropdown label='Tỉnh/thành phố' data={provinces}/>
+                    <CustomDropdown label='Chi nhánh' data={branches}/>
                 </View>
                 </View>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('ServiceInfo')}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TotalConfirm')}>
                     <Text style={{fontWeight: '700', color: '#fff'}}>Tiếp tục</Text>
                 </TouchableOpacity>
             </SafeAreaView>
