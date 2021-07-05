@@ -28,7 +28,7 @@ export function TransferMethodScreen({navigation}) {
                     radioStyle={{paddingBottom: 10, paddingTop:10}}
                 />
             </View>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TransferMethod')}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TransferInput')}>
                     <Text style={styles.title}>Xác nhận</Text>
                 </TouchableOpacity>
         </View>

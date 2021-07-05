@@ -14,7 +14,7 @@ export function TransferScreen({navigation}) {
                     <Text style={styles.title}>Danh sách thụ hưởng đã lưu</Text>
                     <View style={{flexDirection: 'row', paddingTop: 16, paddingBottom: 16}}> 
                         <Text style={styles.text}> Tìm kiếm: </Text>
-                        <TextInput style={styles.input} secureTextEntry={true} placeholderTextColor='#c4c4c4'/>
+                        <TextInput style={styles.input} />
                     </View>
                     <View style={styles.card}> 
                         <Image style={styles.image} source={require('../assets/icons/face.png')}/>
