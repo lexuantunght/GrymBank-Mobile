@@ -16,8 +16,10 @@ export function LoginScreen({navigation, onLoginSuccess}) {
                     <Text style={[styles.text, {marginVertical: 20}]}>Mật khẩu</Text>
                     <TextInput style={styles.input} secureTextEntry={true} placeholder='Nhập mật khẩu' placeholderTextColor='#c4c4c4'/>
                     <View style={{flexDirection: 'row', marginBottom: 30}}>
-                        <TouchableOpacity style={styles.btnlogin} onPress={onLoginSuccess}>
-                            <Text style={[styles.text, {fontWeight: '700'}]}>Đăng nhập</Text>
+                        <TouchableOpacity style={styles.btnlogin} onPress={() => navigation.navigate('Transfer')}>
+                            <Text style={[styles.text, {fontWeight: '700'}]} >
+                                Đăng nhập
+                            </Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.btnface} onPress={() => navigation.navigate('FaceLogin')}>
                             <Image source={require('../assets/icons/face.png')}/>

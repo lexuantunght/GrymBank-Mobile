@@ -11,6 +11,8 @@ import { BackCardScreen } from '../views/BackCardScreen';
 import { ConfirmCardScreen } from '../views/ConfirmCardScreen';
 import { ConfirmFaceScreen } from '../views/ConfirmFaceScreen';
 import { LoginInfoScreen } from '../views/LoginInfoScreen';
+import {TransferScreen} from '../views/TransferScreen';
+import {TransferMethodScreen} from '../views/TransferMethodScreen';
 const Stacks = createStackNavigator();
 
 export function PreNav({onLoginSuccess}) {
@@ -36,6 +38,12 @@ export function PreNav({onLoginSuccess}) {
             <Stacks.Screen name='ConfirmCard' component={ ConfirmCardScreen }/>
             <Stacks.Screen name='ConfirmFace' component={ ConfirmFaceScreen }/>
             <Stacks.Screen name='LoginInfo' component={ LoginInfoScreen }/>
+
+            {/* Transfer */}
+            <Stacks.Screen name = 'TransferMethod' component = { TransferMethodScreen }/>            
+            <Stacks.Screen name='Transfer'>
+                {({navigation}) => <TransferScreen navigation={navigation} onLoginSuccess={onLoginSuccess}/>}
+            </Stacks.Screen>
         </Stacks.Navigator>
     )
 }
