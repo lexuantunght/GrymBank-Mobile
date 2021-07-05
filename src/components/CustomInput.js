@@ -13,6 +13,6 @@ export function CustomInput({label = '', readOnly = false, security = false, val
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff', borderRadius: 15, paddingVertical: 10, paddingHorizontal: 15,
-        flexDirection: 'column', marginBottom: 10
+        flexDirection: 'column', marginBottom: 20
     }
 });
