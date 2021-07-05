@@ -13,6 +13,8 @@ import { ConfirmFaceScreen } from '../views/ConfirmFaceScreen';
 import { LoginInfoScreen } from '../views/LoginInfoScreen';
 import {TransferScreen} from '../views/TransferScreen';
 import {TransferMethodScreen} from '../views/TransferMethodScreen';
+import {TransferInputScreen} from '../views/TransferInputScreen';
+import {TransferReviewScreen} from '../views/TransferReviewScreen';
 const Stacks = createStackNavigator();
 
 export function PreNav({onLoginSuccess}) {
@@ -39,11 +41,13 @@ export function PreNav({onLoginSuccess}) {
             <Stacks.Screen name='ConfirmFace' component={ ConfirmFaceScreen }/>
             <Stacks.Screen name='LoginInfo' component={ LoginInfoScreen }/>
 
-            {/* Transfer */}
-            <Stacks.Screen name = 'TransferMethod' component = { TransferMethodScreen }/>            
+            {/* Transfer */}            
             <Stacks.Screen name='Transfer'>
                 {({navigation}) => <TransferScreen navigation={navigation} onLoginSuccess={onLoginSuccess}/>}
             </Stacks.Screen>
+            <Stacks.Screen name = 'TransferMethod' component = { TransferMethodScreen }/>
+            <Stacks.Screen name = 'TransferInput' component = { TransferInputScreen }/>
+            <Stacks.Screen name = 'TransferReview' component = { TransferReviewScreen }/>
         </Stacks.Navigator>
     )
 }
