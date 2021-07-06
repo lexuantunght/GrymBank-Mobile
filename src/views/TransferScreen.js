@@ -8,7 +8,7 @@ import config from '../configs/config';
 export function TransferScreen({navigation}) {
     return(
         <View style={styles.container}>
-            <CustomHeader title='Chuyển tiền' onLeftClick={() => navigation.goBack()} onRightClick={() => navigation.popToTop()}/>
+            <CustomHeader title='Chuyển tiền' showLeftButton={false} showRightButton={false}/>
             <SafeAreaView style={styles.container}>               
                 <View style={styles.note}>
                     <Text style={styles.title}>Danh sách thụ hưởng đã lưu</Text>

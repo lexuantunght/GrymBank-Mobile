@@ -5,7 +5,7 @@ import { TransferScreen } from '../views/TransferScreen';
 import {TransferMethodScreen} from '../views/TransferMethodScreen';
 const Stacks = createStackNavigator();
 
-export function AppNav(onLoginSuccess) {
+export function AppNav() {
     return(
         <Stacks.Navigator screenOptions = {{
             headerStyle: {
@@ -14,9 +14,7 @@ export function AppNav(onLoginSuccess) {
             headerTintColor: '#fff',
             headerShown: false
         }}>
-            <Stacks.Screen name='Transfer'>
-                {({navigation}) => <TransferScreen navigation={navigation} onLoginSuccess={onLoginSuccess}/>}
-            </Stacks.Screen>
+            <Stacks.Screen name='Transfer' component = {TransferScreen}/>
             <Stacks.Screen name = 'TransferMethod' component = { TransferMethodScreen }/>
         </Stacks.Navigator>
     )

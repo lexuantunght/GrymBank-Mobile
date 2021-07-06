@@ -15,7 +15,7 @@ export function CustomHeader({title = '', subTitle = '', showRightButton = true,
                     <Image source={require('../assets/icons/left-arrow.png')} style={[styles.icon, { marginLeft: 5 }]} resizeMode='contain'/>
                     <Text style={[styles.text]}>Back</Text>
                 </TouchableOpacity> : null}
-                <View style={{flexDirection: 'column', alignItems: 'center'}}>
+                <View style={{flexDirection: 'column', alignItems: 'center', flex: 1}}>
                     <Text style={styles.text}>{title}</Text>
                     {subTitle != '' ? <Text style={styles.subtitle}>{subTitle}</Text> : null}
                 </View>
@@ -38,10 +38,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row', alignItems: 'center'
     },
     text: {
-        color: '#fff', fontSize: 17
+        color: '#fff', fontSize: 17, textAlign: 'center'
     },
     subtitle: {
-        color: '#fff', fontSize: 13
+        color: '#fff', fontSize: 13, textAlign: 'center'
     },
     icon: {
         width: 22, height: 22, tintColor: '#fff'
