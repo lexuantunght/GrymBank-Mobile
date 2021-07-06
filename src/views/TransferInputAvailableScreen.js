@@ -6,7 +6,7 @@ import { CustomHeader } from '../components/CustomHeader';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import config from '../configs/config';
 
-export function TransferInputScreen({navigation}) {
+export function TransferInputAvailableScreen({navigation}) {
     return(
         <View style={styles.container}>
             <CustomHeader title='Chuyển tiền' onLeftClick={() => navigation.goBack()} onRightClick={() => navigation.popToTop()}/>
@@ -48,18 +48,18 @@ export function TransferInputScreen({navigation}) {
                                     mode="dropdown"
                                     onValueChange = {() => {}}
                                 >
-                                <Picker.Item label="Vietcombank"/>
-                                <Picker.Item label="GrympBank" />
+                                    <Picker.Item label="GrympBank"/>
+                                <Picker.Item label="Vietcombank" />
                                 </Picker>
                             </View>
                         </View>
                         <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingBottom: 16}}> 
                             <Text style={styles.text}> TK thụ hưởng: </Text>
-                            <TextInput style={styles.input}/>
+                            <TextInput style={styles.input}> 21536589438 </TextInput>                            
                         </View>     
                         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}> 
                             <Text style={styles.text}> Tên người hưởng:  </Text>
-                            <TextInput style={styles.input}/>
+                            <TextInput style={styles.input}> Nguyễn Văn A</TextInput>
                         </View>               
                     </View>
                     {/* Số tiền và nội dung */}

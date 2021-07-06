@@ -15,21 +15,21 @@ export function TransferScreen({navigation}) {
                     <View style={{flexDirection: 'row', paddingTop: 16, paddingBottom: 16}}> 
                         <Text style={styles.text}> Tìm kiếm: </Text>
                         <TextInput style={styles.input} />
-                    </View>
-                    <View style={styles.card}> 
-                        <Image style={styles.image} source={require('../assets/icons/face.png')}/>
+                    </View> 
+                    <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('TransferInputAvailable')}>
+                        <Image style={styles.image} source={require('../assets/icons/user.png')}/>
                         <View style={{direction: 'ltr', flex: 1, alignItems: 'flex-end'}} >
                             <Text style={styles.textInf}>Nguyễn Văn A</Text>
                             <Text style={styles.textInf}>325623156315</Text>
                         </View>
-                    </View>       
-                    <View style={styles.card}> 
-                        <Image style={styles.image} source={require('../assets/icons/face.png')}/>
+                    </TouchableOpacity> 
+                    <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('TransferInputAvailable')}>
+                    <Image style={styles.image} source={require('../assets/icons/user2.png')}/>
                         <View style={{direction: 'ltr', flex: 1, alignItems: 'flex-end'}} >
                             <Text style={styles.textInf}>Nguyễn Văn B</Text>
                             <Text style={styles.textInf}>325623156315</Text>
                         </View>
-                    </View>                    
+                    </TouchableOpacity>           
                 </View>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TransferMethod')}>
                     <Text style={styles.title}>Người thụ hưởng mới</Text>

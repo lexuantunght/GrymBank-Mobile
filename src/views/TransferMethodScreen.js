@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 import { CustomHeader } from '../components/CustomHeader';
 import config from '../configs/config';
+import RadioForm from 'react-native-simple-radio-button';
 
 var radio_props = [
     {label: 'Chuyển đến tài khoản ngân hàng', value: 0 },
@@ -13,6 +14,17 @@ export function TransferMethodScreen({navigation}) {
     return(
         <View style={styles.container}>
             <CustomHeader title='Chọn phương thức chuyển tiền' onLeftClick={() => navigation.goBack()} onRightClick={() => navigation.popToTop()}/>
+            <View style={styles.method}>
+                <RadioForm radio_props={radio_props} initial = {0}
+                        labelColor = "#fff" buttonColor = "#C4C4C4"
+                        onPress = { (value) => {}} buttonSize = {16}
+                        selectedButtonColor = "#C4C4C4" selectedLabelColor = "#fff"
+                        padding= {50} radioStyle={{paddingBottom: 10, paddingTop:10}}
+                    />
+            </View>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TransferInput')}>
+                <Text style={styles.title}>Xác nhận</Text>
+            </TouchableOpacity>
         </View>
     )
 }

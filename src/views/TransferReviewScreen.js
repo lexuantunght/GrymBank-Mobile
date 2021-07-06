@@ -78,7 +78,7 @@ export function TransferReviewScreen({navigation}) {
                     </View>                
                     </View>
                     
-                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TransferReview')}>
+                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TransferDone')}>
                         <Text style={styles.title}>Xác nhận</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TransferInput')}>
