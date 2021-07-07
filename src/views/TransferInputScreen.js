@@ -16,7 +16,7 @@ export function TransferInputScreen({navigation}) {
                     <View style={styles.info}>
                         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}> 
                             <Text style={styles.text}> Tài khoản nguồn: </Text>                        
-                            <View style={{ borderRadius: 16, borderWidth: 1, overflow: "hidden", 
+                            <View style={{ borderRadius: 16, borderWidth: 0, overflow: "hidden", 
                                 width: 180, height:40, backgroundColor: "#FFF",
                                 textAlign: 'center', justifyContent: 'center', paddingLeft: 12 }}> 
                                 <Picker
@@ -41,7 +41,7 @@ export function TransferInputScreen({navigation}) {
                     <View style={styles.info}>
                         <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingBottom: 16}}> 
                             <Text style={styles.text}> NH TK thụ hưởng: </Text>
-                            <View style={{ borderRadius: 16, borderWidth: 1, overflow: "hidden", 
+                            <View style={{ borderRadius: 16, borderWidth: 0, overflow: "hidden", 
                                 width: 180, height:40, backgroundColor: "#FFF",
                                 textAlign: 'center', justifyContent: 'center', paddingLeft: 12 }}> 
                                 <Picker
@@ -57,16 +57,19 @@ export function TransferInputScreen({navigation}) {
                             <Text style={styles.text}> TK thụ hưởng: </Text>
                             <TextInput style={styles.input}/>
                         </View>     
-                        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}> 
+                        <View style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 16}}> 
                             <Text style={styles.text}> Tên người hưởng:  </Text>
-                            <TextInput style={styles.input}/>
+                            <TextInput style={{backgroundColor: '#fff', borderRadius: 16, fontSize: 16,
+                                textAlign: 'center', justifyContent: 'center', alignItems: 'center',
+                                height: 40, marginLeft: 12, width: 180}}
+                            />
                         </View>               
                     </View>
                     {/* Số tiền và nội dung */}
                     <View style={styles.info}>                    
                         <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingBottom: 16}}> 
                             <Text style={styles.text}> Số tiền: </Text>
-                            <TextInput style={styles.input} placeholder='VND' placeholderTextColor='#c4c4c4'/>
+                            <TextInput style={styles.input} placeholder='VND'  placeholderTextColor='#c4c4c4'/>
                         </View>     
                         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}> 
                             <Text style={styles.text}> Nội dung:  </Text>
