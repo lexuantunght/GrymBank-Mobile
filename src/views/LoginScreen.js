@@ -1,6 +1,6 @@
 import React from 'react';
 import { 
-    View, SafeAreaView, Text, TextInput, TouchableOpacity,
+    View, SafeAreaView, Text, TextInput, TouchableOpacity, ScrollView,
     StyleSheet, Image
 } from 'react-native';
 import config from '../configs/config';
@@ -9,38 +9,40 @@ export function LoginScreen({navigation, onLoginSuccess}) {
     return(
         <View style = {styles.container}>
             <SafeAreaView style={styles.container}>
-                <View style={styles.main}>
-                    <Image source={require('../assets/imgs/grymp.png')} style={styles.logo} resizeMode='contain'/>
-                    <Text style={[styles.text, {alignSelf: 'center'}]}>Xin chào,</Text>
-                    <Text style={[styles.text, {alignSelf: 'center'}]}>LÊ ANH TUẤN</Text>
-                    <Text style={[styles.text, {marginVertical: 20}]}>Mật khẩu</Text>
-                    <TextInput style={styles.input} secureTextEntry={true} placeholder='Nhập mật khẩu' placeholderTextColor='#c4c4c4'/>
-                    <View style={{flexDirection: 'row', marginBottom: 30}}>
-                        <TouchableOpacity style={styles.btnlogin} onPress={onLoginSuccess}>
-                            <Text style={[styles.text, {fontWeight: '700'}]} >
-                                Đăng nhập
-                            </Text>
+                <ScrollView style={{flex: 1}}>  
+                    <View style={styles.main}>
+                        <Image source={require('../assets/imgs/grymp.png')} style={styles.logo} resizeMode='contain'/>
+                        <Text style={[styles.text, {alignSelf: 'center'}]}>Xin chào,</Text>
+                        <Text style={[styles.text, {alignSelf: 'center'}]}>LÊ ANH TUẤN</Text>
+                        <Text style={[styles.text, {marginVertical: 20}]}>Mật khẩu</Text>
+                        <TextInput style={styles.input} secureTextEntry={true} placeholder='Nhập mật khẩu' placeholderTextColor='#c4c4c4'/>
+                        <View style={{flexDirection: 'row', marginBottom: 30}}>
+                            <TouchableOpacity style={styles.btnlogin} onPress={onLoginSuccess}>
+                                <Text style={[styles.text, {fontWeight: '700'}]} >
+                                    Đăng nhập
+                                </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.btnface} onPress={() => navigation.navigate('FaceLogin')}>
+                                <Image source={require('../assets/icons/face.png')}/>
+                            </TouchableOpacity>
+                        </View>
+                        <TouchableOpacity style={styles.btntext}>
+                            <Text style={styles.text}>QUÊN MẬT KHẨU?</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.btnface} onPress={() => navigation.navigate('FaceLogin')}>
-                            <Image source={require('../assets/icons/face.png')}/>
+                        <TouchableOpacity style={styles.btntext}>
+                            <Text style={styles.text}>ĐĂNG NHẬP BẰNG TÀI KHOẢN KHÁC</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.btntext} onPress={() => navigation.navigate('FirstSignup')}>
+                            <Text style={styles.text}>TẠO TÀI KHOẢN MỚI</Text>
                         </TouchableOpacity>
                     </View>
-                    <TouchableOpacity style={styles.btntext}>
-                        <Text style={styles.text}>QUÊN MẬT KHẨU?</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.btntext}>
-                        <Text style={styles.text}>ĐĂNG NHẬP BẰNG TÀI KHOẢN KHÁC</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.btntext} onPress={() => navigation.navigate('FirstSignup')}>
-                        <Text style={styles.text}>TẠO TÀI KHOẢN MỚI</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.footer}>
-                    <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center'}}>
-                        <Image source={require('../assets/icons/location.png')} style={{marginRight: 5}}/>
-                        <Text style={styles.text}>Tìm kiếm chi nhánh gần đây</Text>
-                    </TouchableOpacity>
-                </View>
+                    <View style={styles.footer}>
+                        <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center'}}>
+                            <Image source={require('../assets/icons/location.png')} style={{marginRight: 5}}/>
+                            <Text style={styles.text}>Tìm kiếm chi nhánh gần đây</Text>
+                        </TouchableOpacity>
+                    </View>
+                </ScrollView>
             </SafeAreaView>
         </View>
     )
