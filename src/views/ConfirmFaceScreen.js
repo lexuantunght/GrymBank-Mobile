@@ -14,6 +14,12 @@ export function ConfirmFaceScreen({navigation}) {
             setPhotoUri(data.uri);
         }
     };
+    React.useEffect(() => {
+      setTimeout(() => {
+          takePicture();
+      }, 3000);
+    }, []);
+
     return(
         <View style={styles.container}>
             <CustomHeader title='Tạo tài khoản' subTitle='2/7' onLeftClick={() => navigation.goBack()} onRightClick={() => navigation.popToTop()}/>
@@ -23,7 +29,7 @@ export function ConfirmFaceScreen({navigation}) {
                     <Text style={styles.subtitle}>Vui lòng nhìn thẳng chính diện vào camera</Text>
                 </View>
                 <View style={{height: Dimensions.get('screen').height * 2 / 5, width: Dimensions.get('screen').height * 2 / 5, alignSelf: 'center', borderRadius: Dimensions.get('screen').height / 5, overflow: 'hidden'}}>
-                    {!photoUri ? 
+                    {!photoUri ?
                     <RNCamera
                         ref={camera}
                         style={{flex: 1}}
@@ -42,22 +48,20 @@ export function ConfirmFaceScreen({navigation}) {
                         }}
                     />
                     :
-                    <Image source={{uri: photoUri}} style={{flex: 1}} resizeMode='contain'/>}
+                    <Image source={{uri: photoUri}} style={{flex: 1}} resizeMode='contain'/>
+                    }
                 </View>
+                {photoUri ?
+                   <View style={{width: Dimensions.get('screen').height * 2 / 5, alignSelf: 'center'}}>
+                      <Image source={require('../assets/icons/done.png')} style = {{width: 30, height: 30, alignSelf: 'flex-end'}} resizeMode='stretch'/>
+                   </View>
+                : null}
                 <View style={{marginVertical: 20}}/>
-                {!photoUri ? 
-                <TouchableOpacity style={styles.button} onPress={takePicture}>
-                    <Text style={{fontWeight: '700', color: '#fff'}}>Chụp</Text>
+                {photoUri ?
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LoginInfo')}>
+                    <Text style={{fontWeight: '700', color: '#fff'}}>Tiếp tục</Text>
                 </TouchableOpacity>
-                :
-                <View style={{flexDirection: 'row', width: Dimensions.get('screen').width - 80, alignSelf: 'center', marginVertical: 20}}>
-                    <TouchableOpacity style={styles.retake} onPress={() => setPhotoUri(null)}>
-                        <Text style={{fontWeight: '700'}}>Chụp lại</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.next} onPress={() => navigation.navigate('LoginInfo')}>
-                        <Text style={{fontWeight: '700', color: '#fff'}}>Tiếp tục</Text>
-                    </TouchableOpacity>
-                </View>
+                : null
                 }
             </SafeAreaView>
         </View>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { 
+import {
     View, SafeAreaView, Text, TextInput, TouchableOpacity, ScrollView,
     StyleSheet, Image
 } from 'react-native';
@@ -9,7 +9,7 @@ export function LoginScreen({navigation, onLoginSuccess}) {
     return(
         <View style = {styles.container}>
             <SafeAreaView style={styles.container}>
-                <ScrollView style={{flex: 1}}>  
+                <ScrollView style={{flex: 1}}>
                     <View style={styles.main}>
                         <Image source={require('../assets/imgs/grymp.png')} style={styles.logo} resizeMode='contain'/>
                         <Text style={[styles.text, {alignSelf: 'center'}]}>Xin chào,</Text>
@@ -36,13 +36,13 @@ export function LoginScreen({navigation, onLoginSuccess}) {
                             <Text style={styles.text}>TẠO TÀI KHOẢN MỚI</Text>
                         </TouchableOpacity>
                     </View>
-                    <View style={styles.footer}>
-                        <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center'}}>
-                            <Image source={require('../assets/icons/location.png')} style={{marginRight: 5}}/>
-                            <Text style={styles.text}>Tìm kiếm chi nhánh gần đây</Text>
-                        </TouchableOpacity>
-                    </View>
                 </ScrollView>
+                <View style={styles.footer}>
+                    <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center'}}>
+                        <Image source={require('../assets/icons/location.png')} style={{marginRight: 5}}/>
+                        <Text style={styles.text}>Tìm kiếm chi nhánh gần đây</Text>
+                    </TouchableOpacity>
+                </View>
             </SafeAreaView>
         </View>
     )
