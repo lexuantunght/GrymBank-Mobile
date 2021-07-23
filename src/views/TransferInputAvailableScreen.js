@@ -17,7 +17,7 @@ export function TransferInputAvailableScreen({navigation}) {
                         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}> 
                             <Text style={styles.text}> Tài khoản nguồn: </Text>                        
                             <View style={{ borderRadius: 16, borderWidth: 0, overflow: "hidden", 
-                                width: 180, height:40, backgroundColor: "#FFF",
+                                width: Dimensions.get('screen').width / 2.2, height:40, backgroundColor: "#FFF",
                                 textAlign: 'center', justifyContent: 'center', paddingLeft: 12 }}> 
                                 <Picker
                                     mode="dropdown"
@@ -42,7 +42,7 @@ export function TransferInputAvailableScreen({navigation}) {
                         <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingBottom: 16}}> 
                             <Text style={styles.text}> NH TK thụ hưởng: </Text>
                             <View style={{ borderRadius: 16, borderWidth: 0, overflow: "hidden", 
-                                width: 180, height:40, backgroundColor: "#FFF",
+                                width: Dimensions.get('screen').width / 2.2, height:40, backgroundColor: "#FFF",
                                 textAlign: 'center', justifyContent: 'center', paddingLeft: 12 }}> 
                                 <Picker
                                     mode="dropdown"
@@ -59,12 +59,9 @@ export function TransferInputAvailableScreen({navigation}) {
                         </View>     
                         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}> 
                             <Text style={styles.text}> Tên người hưởng:  </Text>
-                            <TextInput style={{backgroundColor: '#fff', borderRadius: 16, fontSize: 16,
-                                textAlign: 'center', justifyContent: 'center', alignItems: 'center',
-                                height: 40, marginLeft: 12, width: 180}}
-                            > 
-                            Nguyễn Văn A
-                            </TextInput>
+                            <TextInput style={styles.input}>
+                                Nguyễn Văn A    
+                            </TextInput> 
                         </View>               
                     </View>
                     {/* Số tiền và nội dung */}
@@ -115,7 +112,8 @@ const styles = StyleSheet.create({
     input: {
         backgroundColor: '#fff', borderRadius: 16, fontSize: 16,
         textAlign: 'center', justifyContent: 'center', alignItems: 'center',
-        height: 40, marginLeft: 16, width: 180, textAlign: 'center', justifyContent: 'center',
+        height: 40, width: Dimensions.get('screen').width / 2.2,
+         textAlign: 'center', justifyContent: 'center',
     },
     card: {
         backgroundColor: config.backColor,

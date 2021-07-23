@@ -48,7 +48,7 @@ export function ConfirmFaceScreen({navigation}) {
                         }}
                     />
                     :
-                    <Image source={{uri: photoUri}} style={{flex: 1}} resizeMode='contain'/>
+                    <Image source={{uri: photoUri}} style={{flex: 1}} />
                     }
                 </View>
                 {photoUri ?

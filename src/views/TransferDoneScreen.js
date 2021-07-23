@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 20, marginTop: 20, paddingBottom:20, alignSelf: 'center',
     },
     title: {
-        fontSize: 16, fontWeight: '700', color: '#fff', paddingBottom: 8,
+        fontSize: 16, fontWeight: '700', color: '#fff'
     },
     info: {
         backgroundColor: config.primary, padding: 16, marginHorizontal: 20,

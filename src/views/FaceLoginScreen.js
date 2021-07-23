@@ -8,16 +8,24 @@ import config from '../configs/config';
 
 export function FaceLoginScreen({navigation, onLoginSuccess}) {
     const camera = React.useRef();
-    var [checkPhoto, setCheckPhoto] = useState(false);
-    useEffect(() => {
-        setTimeout(() => {
-            setCheckPhoto(true);
-        }, 3000);
-      }, []);
+    const [photoUri, setPhotoUri] = React.useState(null);
+    const takePicture = async () => {
+        if (camera) {
+            const options = { quality: 0.5, base64: false };
+            const data = await camera.current.takePictureAsync(options);
+            setPhotoUri(data.uri);
+        }
+    };
+    React.useEffect(() => {
+      setTimeout(() => {
+          takePicture();
+      }, 3000);
+    }, []);
+
     useEffect(() => {
     setTimeout(() => {
         onLoginSuccess();
-    }, 5000);
+    }, 6000);
     }, []);
     return(
         <View style={styles.container}>
@@ -28,15 +36,15 @@ export function FaceLoginScreen({navigation, onLoginSuccess}) {
                         <Text style={{fontSize: 16, fontWeight: '500', color: '#fff',
                             marginHorizontal: 10, marginTop: 30, 
                             alignSelf: 'center',}} >            
-                            Vui lòng nhìn thẳng camera để xác thực
+                            Vui lòng nhìn thẳng camera để
                         </Text>
                         <Text style={{fontSize: 16, fontWeight: '500', color: '#fff',
                             marginHorizontal: 10, marginBottom: 30,
                             alignSelf: 'center',}} >            
-                            khuôn mặt của bạn
+                            xác thực khuôn mặt của bạn
                         </Text>
                         <View style={styles.cam}>
-                            {!checkPhoto ? 
+                            {!photoUri ? 
                             <RNCamera
                                 ref={camera}
                                 style={{flex: 1}}
@@ -55,16 +63,16 @@ export function FaceLoginScreen({navigation, onLoginSuccess}) {
                                 }}
                             />
                             :
-                            <Image style={styles.cam} source={require('../assets/imgs/face.png')}/>}
+                            <Image source={{uri: photoUri}} style={{flex: 1}} />}
                         </View>
                         <View style={{marginVertical: 20}}/>
-                        {!checkPhoto ? 
+                        {!photoUri ? 
                             <View>
 
                             </View>
                             :
                             <View >
-                                <Image style={styles.image} source={require('../assets/icons/done.png')} />
+                                <Image source={{uri: photoUri}} style={{flex: 1}}/>
                                 <Text style={{fontSize: 18, fontWeight: '500', color: '#fff',
                                     marginHorizontal: 10, marginBottom: 30, 
                                     alignSelf: 'center',}} >            

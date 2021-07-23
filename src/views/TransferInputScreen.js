@@ -17,7 +17,7 @@ export function TransferInputScreen({navigation}) {
                         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}> 
                             <Text style={styles.text}> Tài khoản nguồn: </Text>                        
                             <View style={{ borderRadius: 16, borderWidth: 0, overflow: "hidden", 
-                                width: 180, height:40, backgroundColor: "#FFF",
+                                width: Dimensions.get('screen').width / 2.2, height:40, backgroundColor: "#FFF",
                                 textAlign: 'center', justifyContent: 'center', paddingLeft: 12 }}> 
                                 <Picker
                                     mode="dropdown"
@@ -42,7 +42,7 @@ export function TransferInputScreen({navigation}) {
                         <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingBottom: 16}}> 
                             <Text style={styles.text}> NH TK thụ hưởng: </Text>
                             <View style={{ borderRadius: 16, borderWidth: 0, overflow: "hidden", 
-                                width: 180, height:40, backgroundColor: "#FFF",
+                                width: Dimensions.get('screen').width / 2.2, height:40, backgroundColor: "#FFF",
                                 textAlign: 'center', justifyContent: 'center', paddingLeft: 12 }}> 
                                 <Picker
                                     mode="dropdown"
@@ -56,14 +56,11 @@ export function TransferInputScreen({navigation}) {
                         <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingBottom: 16}}> 
                             <Text style={styles.text}> TK thụ hưởng: </Text>
                             <TextInput style={styles.input}/>
-                        </View>     
-                        <View style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 16}}> 
+                        </View> 
+                        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}> 
                             <Text style={styles.text}> Tên người hưởng:  </Text>
-                            <TextInput style={{backgroundColor: '#fff', borderRadius: 16, fontSize: 16,
-                                textAlign: 'center', justifyContent: 'center', alignItems: 'center',
-                                height: 40, marginLeft: 12, width: 180}}
-                            />
-                        </View>               
+                            <TextInput style={styles.input}/>
+                        </View>            
                     </View>
                     {/* Số tiền và nội dung */}
                     <View style={styles.info}>                    
@@ -74,7 +71,7 @@ export function TransferInputScreen({navigation}) {
                         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}> 
                             <Text style={styles.text}> Nội dung:  </Text>
                             <TextInput style={styles.input}/>
-                        </View>               
+                        </View>                                       
                     </View>
                     <View style={styles.saveInfo}>
                         <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: 15}}>
@@ -108,12 +105,12 @@ const styles = StyleSheet.create({
     },
     text: {
         color: '#fff', fontSize: 16, textAlign: 'center', justifyContent: 'center', 
-        alignItems: 'center', alignSelf: 'center',
+        alignItems: 'center', alignSelf: 'center', 
     },
     input: {
         backgroundColor: '#fff', borderRadius: 16, fontSize: 16,
         textAlign: 'center', justifyContent: 'center', alignItems: 'center',
-        height: 40, marginLeft: 16, width: 180
+        height: 40, width: Dimensions.get('screen').width / 2.2
     },
     card: {
         backgroundColor: config.backColor,

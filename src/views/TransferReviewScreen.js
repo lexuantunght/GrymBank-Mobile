@@ -16,7 +16,7 @@ export function TransferReviewScreen({navigation}) {
                     <View style={styles.info}>
                         <Text style={styles.title}>Thông tin người chuyển</Text>
                         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}> 
-                            <Text style={styles.text}>Tài khoản nguồn: </Text>
+                            <Text style={styles.text}> Tài khoản nguồn: </Text>
                             <Text style={styles.textInf}>2153265425</Text>
                         </View> 
                         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}> 
@@ -32,9 +32,9 @@ export function TransferReviewScreen({navigation}) {
                     <View style={styles.info}>
                         <Text style={styles.title}>Thông tin người hưởng</Text>
                         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}> 
-                            <Text style={styles.text}>NH Tài khoản thụ hưởng: </Text>
+                            <Text style={styles.text}> NH TK thụ hưởng: </Text>
                             <Text style={styles.textInf}>Vietcombank</Text>
-                        </View> 
+                        </View>  
                         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}> 
                             <Text style={styles.text}> TK thụ hưởng: </Text>
                             <Text style={styles.textInf}>21536589438</Text>
@@ -46,11 +46,11 @@ export function TransferReviewScreen({navigation}) {
                     </View>
                     {/* Thông tin giao dịch */}
                     <View style={styles.info}>
-                        <Text style={styles.title}>Thông tin giao dịch</Text>
+                        <Text style={styles.title}>Thông tin giao dịch</Text> 
                         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}> 
-                            <Text style={styles.text}>Ngày giao dịch: </Text>
+                            <Text style={styles.text}> Ngày giao dịch: </Text>
                             <Text style={styles.textInf}>10/07/2021</Text>
-                        </View> 
+                        </View>  
                         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}> 
                             <Text style={styles.text}> Số tiền: </Text>
                             <Text style={styles.textInf}>5.000.000 VND</Text>
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 20, marginTop: 20, paddingBottom:20, alignSelf: 'center',
     },
     title: {
-        fontSize: 16, fontWeight: '700', color: '#fff', paddingBottom: 8,
+        fontSize: 16, fontWeight: '700', color: '#fff',
     },
     info: {
         backgroundColor: config.primary, padding: 16, marginHorizontal: 20,
